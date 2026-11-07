@@ -1,0 +1,26 @@
+{
+  "name": "bulls-and-cows",
+  "version": "1.0.0",
+  "description": "Разработка игры «Bulls and Cows» на TypeScript с применением функционального программирования и разработки через тестирование (TDD). Учебный проект RS School.",
+  "main": "index.js",
+"scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssidratt/bulls-and-cows.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ssidratt/bulls-and-cows/issues"
+  },
+  "homepage": "https://github.com/ssidratt/bulls-and-cows#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.12"
+  }
+}
