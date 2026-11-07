@@ -7,8 +7,16 @@ export function checkGuess(
     let cows = 0;
 
     for (let i = 0; i < secret.length; i++) {
-        if (secret[i] === guess[i]) {
+        const digit = guess[i];
+
+        if (digit === undefined) {
+            continue;
+        }
+
+        if (secret[i] === digit) {
             bulls++;
+        } else if (secret.includes(digit)) {
+            cows++;
         }
     }
 
