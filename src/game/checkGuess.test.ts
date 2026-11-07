@@ -20,4 +20,13 @@ describe('checkGuess', () => {
             cows: 4,
         });
     });
+
+    it('определяет 2 быка и 2 коровы', () => {
+        const result = checkGuess('1234', '1243');
+
+        expect(result).toEqual({
+            bulls: 2,
+            cows: 2,
+        });
+    });
 });
