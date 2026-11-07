@@ -1,6 +1,6 @@
 
 import { describe, expect, it } from 'vitest';
-import { checkGuess } from './checkGuess';
+import { checkGuess } from './checkGuess.js';
 
 describe('checkGuess', () => {
     it('определяет 4 быка при полном совпадении', () => {
