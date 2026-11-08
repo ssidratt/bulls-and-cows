@@ -1,4 +1,6 @@
 
+import { createDigitValidator } from './createDigitValidator.js';
+
 export function isValidGuess(
     guess: string,
     length: number,
@@ -20,12 +22,9 @@ export function isValidGuess(
     }
 
     const digits = [...guess.toUpperCase()];
-    const allowedDigits = '0123456789ABCDEF'.slice(0, base);
+    const validateDigit = createDigitValidator(base);
 
-    const hasValidDigits = digits.every((digit) =>
-        allowedDigits.includes(digit)
-    );
-
+    const hasValidDigits = digits.every(validateDigit);
     const hasUniqueDigits =
         new Set(digits).size === digits.length;
 
