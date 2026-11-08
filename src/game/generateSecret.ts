@@ -1,8 +1,7 @@
-
 export function generateSecret(
     length: number,
     base: number,
-    random: () => number = Math.random
+    random: () => number = Math.random,
 ): string {
     const allowedBases = [2, 8, 10, 16];
 
@@ -19,9 +18,7 @@ export function generateSecret(
         throw new RangeError('Invalid secret length');
     }
 
-    const availableDigits = [
-        ...'0123456789ABCDEF'.slice(0, base),
-    ];
+    const availableDigits = [...'0123456789ABCDEF'.slice(0, base)];
 
     const selectedDigits: string[] = [];
 
@@ -36,9 +33,7 @@ export function generateSecret(
             throw new RangeError('Invalid random value');
         }
 
-        const randomIndex = Math.floor(
-            randomValue * availableDigits.length
-        );
+        const randomIndex = Math.floor(randomValue * availableDigits.length);
 
         const [digit] = availableDigits.splice(randomIndex, 1);
 

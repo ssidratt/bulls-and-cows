@@ -1,4 +1,3 @@
-
 import { generateSecret } from './game/generateSecret.js';
 import { evaluateGuess } from './game/evaluateGuess.js';
 import { isValidGuess } from './game/isValidGuess.js';
@@ -38,7 +37,7 @@ let status: 'settings' | 'playing' | 'won' = 'settings';
 
 function element<K extends keyof HTMLElementTagNameMap>(
     tag: K,
-    text?: string
+    text?: string,
 ): HTMLElementTagNameMap[K] {
     const node = document.createElement(tag);
 
@@ -110,9 +109,9 @@ function renderRecords(container: HTMLElement): void {
             element(
                 'li',
                 `${labels.get(record.base) ?? record.base}, ` +
-                `${record.length} цифры: ` +
-                `${record.attempts} попыток, ${record.seconds} сек.`
-            )
+                    `${record.length} цифры: ` +
+                    `${record.attempts} попыток, ${record.seconds} сек.`,
+            ),
         );
     });
 
@@ -130,8 +129,8 @@ function render(): void {
         element(
             'p',
             'Угадай секретное число. Бык означает цифру на своём месте, ' +
-            'корова означает правильную цифру на другой позиции.'
-        )
+                'корова означает правильную цифру на другой позиции.',
+        ),
     );
 
     if (status === 'settings') {
@@ -188,21 +187,19 @@ function renderSettings(app: HTMLElement): void {
     baseSelect.addEventListener('change', () => {
         base = Number(baseSelect.value);
         updateLengths();
-        combinations.textContent =
-            `Возможных секретов: ${countPossibleSecrets(length, base)}`;
+        combinations.textContent = `Возможных секретов: ${countPossibleSecrets(length, base)}`;
     });
 
     lengthSelect.addEventListener('change', () => {
         length = Number(lengthSelect.value);
-        combinations.textContent =
-            `Возможных секретов: ${countPossibleSecrets(length, base)}`;
+        combinations.textContent = `Возможных секретов: ${countPossibleSecrets(length, base)}`;
     });
 
     updateLengths();
 
     const combinations = element(
         'p',
-        `Возможных секретов: ${countPossibleSecrets(length, base)}`
+        `Возможных секретов: ${countPossibleSecrets(length, base)}`,
     );
 
     panel.append(
@@ -217,7 +214,7 @@ function renderSettings(app: HTMLElement): void {
             startedAt = Date.now();
             status = 'playing';
             render();
-        })
+        }),
     );
 
     app.append(panel);
@@ -229,10 +226,7 @@ function renderGame(app: HTMLElement): void {
 
     panel.append(
         element('h2', status === 'won' ? 'Победа!' : 'Игра началась'),
-        element(
-            'p',
-            `${labels.get(base)} система, ${length} цифры`
-        )
+        element('p', `${labels.get(base)} система, ${length} цифры`),
     );
 
     if (status === 'playing') {
@@ -278,9 +272,7 @@ function renderGame(app: HTMLElement): void {
 
             if (result.bulls === length) {
                 status = 'won';
-                const seconds = Math.floor(
-                    (Date.now() - startedAt) / 1000
-                );
+                const seconds = Math.floor((Date.now() - startedAt) / 1000);
 
                 saveRecord({
                     length,
@@ -301,7 +293,7 @@ function renderGame(app: HTMLElement): void {
     } else {
         panel.append(
             element('p', `Секрет: ${secret}`),
-            element('p', `Попыток: ${history.length}`)
+            element('p', `Попыток: ${history.length}`),
         );
     }
 
@@ -311,8 +303,8 @@ function renderGame(app: HTMLElement): void {
         list.append(
             element(
                 'li',
-                `${entry.guess}: ${entry.bulls} быков, ${entry.cows} коров`
-            )
+                `${entry.guess}: ${entry.bulls} быков, ${entry.cows} коров`,
+            ),
         );
     });
 
@@ -323,7 +315,7 @@ function renderGame(app: HTMLElement): void {
             status = 'settings';
             history = [];
             render();
-        })
+        }),
     );
 
     app.append(panel);

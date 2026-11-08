@@ -1,10 +1,9 @@
-
 import { createDigitValidator } from './createDigitValidator.js';
 
 export function isValidGuess(
     guess: string,
     length: number,
-    base: number
+    base: number,
 ): boolean {
     const allowedBases = [2, 8, 10, 16];
 
@@ -25,8 +24,7 @@ export function isValidGuess(
     const validateDigit = createDigitValidator(base);
 
     const hasValidDigits = digits.every(validateDigit);
-    const hasUniqueDigits =
-        new Set(digits).size === digits.length;
+    const hasUniqueDigits = new Set(digits).size === digits.length;
 
     return hasValidDigits && hasUniqueDigits;
 }

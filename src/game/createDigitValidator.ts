@@ -1,7 +1,4 @@
-
-export function createDigitValidator(
-    base: number
-): (digit: string) => boolean {
+export function createDigitValidator(base: number): (digit: string) => boolean {
     const allowedBases = [2, 8, 10, 16];
 
     if (!allowedBases.includes(base)) {
@@ -12,8 +9,7 @@ export function createDigitValidator(
 
     return (digit: string): boolean => {
         return (
-            digit.length === 1 &&
-            allowedDigits.includes(digit.toUpperCase())
+            digit.length === 1 && allowedDigits.includes(digit.toUpperCase())
         );
     };
 }

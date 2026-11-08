@@ -1,7 +1,6 @@
-
 export function checkGuess(
     secret: string,
-    guess: string
+    guess: string,
 ): { bulls: number; cows: number } {
     let bulls = 0;
     let cows = 0;

@@ -1,10 +1,6 @@
-
 const cache = new Map<string, number>();
 
-export function countPossibleSecrets(
-    length: number,
-    base: number
-): number {
+export function countPossibleSecrets(length: number, base: number): number {
     if (
         !Number.isInteger(length) ||
         !Number.isInteger(base) ||
@@ -27,8 +23,7 @@ export function countPossibleSecrets(
         return cachedResult;
     }
 
-    const result =
-        base * countPossibleSecrets(length - 1, base - 1);
+    const result = base * countPossibleSecrets(length - 1, base - 1);
 
     cache.set(key, result);
 

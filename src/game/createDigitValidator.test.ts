@@ -1,4 +1,3 @@
-
 import { describe, expect, it } from 'vitest';
 import { createDigitValidator } from './createDigitValidator.js';
 
@@ -47,4 +46,3 @@ describe('createDigitValidator', () => {
         expect(validate('1')).toBe(false);
     });
 });
-
