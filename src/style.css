@@ -1,0 +1,97 @@
+
+:root {
+    font-family: Arial, sans-serif;
+    color: #172033;
+    background: #f3f5fa;
+    font-synthesis: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.app {
+    width: min(100% - 32px, 640px);
+    margin: 48px auto;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px;
+    margin-top: 24px;
+    background: white;
+    border: 1px solid #e1e5ee;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgb(20 30 60 / 5%);
+}
+
+label {
+    font-weight: bold;
+}
+
+select,
+input,
+button {
+    width: 100%;
+    padding: 12px;
+    font: inherit;
+    border-radius: 8px;
+}
+
+select,
+input {
+    border: 1px solid #b8c2d4;
+    background: white;
+}
+
+button {
+    border: 0;
+    color: white;
+    background: #3658d4;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #2945b1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+ol {
+    padding-left: 24px;
+    line-height: 1.9;
+}
+
+@media (max-width: 480px) {
+    .app {
+        margin: 24px auto;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+}
