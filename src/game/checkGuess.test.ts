@@ -29,4 +29,13 @@ describe('checkGuess', () => {
             cows: 2,
         });
     });
+
+    it('определяет отсутствие совпадений', () => {
+        const result = checkGuess('1234', '5678');
+
+        expect(result).toEqual({
+            bulls: 0,
+            cows: 0,
+        });
+    });
 });
