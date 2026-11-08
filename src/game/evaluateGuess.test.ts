@@ -11,4 +11,13 @@ describe('evaluateGuess', () => {
             cows: 0,
         });
     });
+
+    it('определяет 4 коровы при несовпадении позиций', () => {
+        const result = evaluateGuess('1234', '4321');
+
+        expect(result).toEqual({
+            bulls: 0,
+            cows: 4,
+        });
+    });
 });
