@@ -4,9 +4,7 @@ import { generateSecret } from './generateSecret.js';
 
 describe('generateSecret', () => {
     it('генерирует число заданной длины', () => {
-        const secret = generateSecret(4, 10);
-
-        expect(secret).toHaveLength(4);
+        expect(generateSecret(4, 10)).toHaveLength(4);
     });
 
     it('генерирует уникальные цифры', () => {
@@ -37,5 +35,17 @@ describe('generateSecret', () => {
         expect([...secret].every((digit) =>
             '01234567'.includes(digit)
         )).toBe(true);
+    });
+
+    it('использует переданный источник случайности', () => {
+        expect(generateSecret(4, 10, () => 0)).toBe('0123');
+    });
+
+    it('сохраняет начальный ноль', () => {
+        expect(generateSecret(2, 2, () => 0)).toBe('01');
+    });
+
+    it('отклоняет недопустимую длину', () => {
+        expect(() => generateSecret(3, 2)).toThrow(RangeError);
     });
 });
