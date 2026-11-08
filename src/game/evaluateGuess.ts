@@ -3,8 +3,8 @@ export function evaluateGuess(
     secret: string,
     guess: string
 ): { bulls: number; cows: number } {
-    const secretDigits = [...secret];
-    const guessDigits = [...guess];
+    const secretDigits = [...secret.toUpperCase()];
+    const guessDigits = [...guess.toUpperCase()];
 
     const bulls = guessDigits.filter(
         (digit, index) => digit === secretDigits[index]
@@ -18,4 +18,3 @@ export function evaluateGuess(
 
     return { bulls, cows };
 }
-
