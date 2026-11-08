@@ -1,4 +1,6 @@
 
+const cache = new Map<string, number>();
+
 export function countPossibleSecrets(
     length: number,
     base: number
@@ -17,8 +19,18 @@ export function countPossibleSecrets(
         return 1;
     }
 
-    return (
-        base *
-        countPossibleSecrets(length - 1, base - 1)
-    );
+    const key = `${length}:${base}`;
+
+    const cachedResult = cache.get(key);
+
+    if (cachedResult !== undefined) {
+        return cachedResult;
+    }
+
+    const result =
+        base * countPossibleSecrets(length - 1, base - 1);
+
+    cache.set(key, result);
+
+    return result;
 }
